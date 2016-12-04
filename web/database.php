@@ -1,10 +1,10 @@
 <?php
 class Database 
 {
-	private static $dbName = 'crud_tutorial' ; 
-	private static $dbHost = 'localhost' ;
-	private static $dbUsername = 'root';
-	private static $dbUserPassword = 'root';
+	private static $dbName = 'sql7147806' ; 
+	private static $dbHost = 'sql7.freemysqlhosting.net' ;
+	private static $dbUsername = 'sql7147806';
+	private static $dbUserPassword = 'Ezuy3DJCJ8';
 	
 	private static $cont  = null;
 	
