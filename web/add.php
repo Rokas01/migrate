@@ -14,7 +14,7 @@ if(isset($_POST['Submit'])) {
 	$email = $_POST['email'];
 		
 	// checking empty fields
-	if(empty($name) || empty($age) || empty($email)) {
+	if(empty($name) || empty($date) || empty($email)) {
 				
 		if(empty($name)) {
 			echo "<font color='red'>Laukas tuscias.</font><br/>";
