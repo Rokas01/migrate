@@ -20,7 +20,7 @@ if(isset($_POST['Submit'])) {
 			echo "<font color='red'>Laukas tuscias.</font><br/>";
 		}
 		
-		if(empty($age)) {
+		if(empty($date)) {
 			echo "<font color='red'>Laukas tuscias.</font><br/>";
 		}
 		
