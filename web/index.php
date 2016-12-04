@@ -1,26 +1,54 @@
-<?php
-$servername = "sql7.freemysqlhosting.net";
-$username = "sql7147806";
-$password = "Ezuy3DJCJ8";
-$dbname = "sql7147806";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link   href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</head>
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT Name, Date, Address FROM CRUD";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["Name"]. " " . $row["Date"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
+<body>
+    <div class="container">
+    		<div class="row">
+    			<h3>PHP CRUD Grid</h3>
+    		</div>
+			<div class="row">
+				<p>
+					<a href="create.php" class="btn btn-success">Create</a>
+				</p>
+				
+				<table class="table table-striped table-bordered">
+		              <thead>
+		                <tr>
+		                  <th>Name</th>
+		                  <th>Email Address</th>
+		                  <th>Mobile Number</th>
+		                  <th>Action</th>
+		                </tr>
+		              </thead>
+		              <tbody>
+		              <?php 
+					   include 'database.php';
+					   $pdo = Database::connect();
+					   $sql = 'SELECT * FROM customers ORDER BY id DESC';
+	 				   foreach ($pdo->query($sql) as $row) {
+						   		echo '<tr>';
+							   	echo '<td>'. $row['name'] . '</td>';
+							   	echo '<td>'. $row['email'] . '</td>';
+							   	echo '<td>'. $row['mobile'] . '</td>';
+							   	echo '<td width=250>';
+							   	echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';
+							   	echo '&nbsp;';
+							   	echo '<a class="btn btn-success" href="update.php?id='.$row['id'].'">Update</a>';
+							   	echo '&nbsp;';
+							   	echo '<a class="btn btn-danger" href="delete.php?id='.$row['id'].'">Delete</a>';
+							   	echo '</td>';
+							   	echo '</tr>';
+					   }
+					   Database::disconnect();
+					  ?>
+				      </tbody>
+	            </table>
+    	</div>
+    </div> <!-- /container -->
+  </body>
+</html>
