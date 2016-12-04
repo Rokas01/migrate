@@ -10,22 +10,22 @@ include_once("config.php");
 
 if(isset($_POST['Submit'])) {	
 	$name = $_POST['name'];
-	$age = $_POST['age'];
+	$date = $_POST['date'];
 	$email = $_POST['email'];
 		
 	// checking empty fields
 	if(empty($name) || empty($age) || empty($email)) {
 				
 		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
+			echo "<font color='red'>Laukas tuscias.</font><br/>";
 		}
 		
 		if(empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
+			echo "<font color='red'>Laukas tuscias.</font><br/>";
 		}
 		
 		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
+			echo "<font color='red'>Laukas tuscias.</font><br/>";
 		}
 		
 		//link to the previous page
@@ -34,11 +34,11 @@ if(isset($_POST['Submit'])) {
 		// if all the fields are filled (not empty) 
 			
 		//insert data to database	
-		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email) VALUES('$name','$age','$email')");
+		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email) VALUES('$name','$date','$email')");
 		
 		//display success message
-		echo "<font color='green'>Data added successfully.";
-		echo "<br/><a href='index.php'>View Result</a>";
+		echo "<font color='green'>Sekmingai prideta.";
+		echo "<br/><a href='index.php'>Perziureti</a>";
 	}
 }
 ?>

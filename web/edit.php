@@ -7,17 +7,17 @@ if(isset($_POST['update']))
 	$id = $_POST['id'];
 	
 	$name=$_POST['name'];
-	$age=$_POST['age'];
+	$date=$_POST['date'];
 	$email=$_POST['email'];	
 	
 	// checking empty fields
-	if(empty($name) || empty($age) || empty($email)) {	
+	if(empty($name) || empty($date) || empty($email)) {	
 			
 		if(empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
 		}
 		
-		if(empty($age)) {
+		if(empty($date)) {
 			echo "<font color='red'>Age field is empty.</font><br/>";
 		}
 		
@@ -26,7 +26,7 @@ if(isset($_POST['update']))
 		}		
 	} else {	
 		//updating the table
-		$result = mysqli_query($mysqli, "UPDATE users SET name='$name',age='$age',email='$email' WHERE id=$id");
+		$result = mysqli_query($mysqli, "UPDATE users SET name='$name',date='$date',email='$email' WHERE id=$id");
 		
 		//redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
@@ -43,7 +43,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 while($res = mysqli_fetch_array($result))
 {
 	$name = $res['name'];
-	$age = $res['age'];
+	$date = $res['date'];
 	$email = $res['email'];
 }
 ?>
@@ -63,8 +63,8 @@ while($res = mysqli_fetch_array($result))
 				<td><input type="text" name="name" value="<?php echo $name;?>"></td>
 			</tr>
 			<tr> 
-				<td>Age</td>
-				<td><input type="text" name="age" value="<?php echo $age;?>"></td>
+				<td>Data</td>
+				<td><input type="date" name="date" value="<?php echo $date;?>"></td>
 			</tr>
 			<tr> 
 				<td>Email</td>
