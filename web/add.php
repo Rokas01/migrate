@@ -9,9 +9,9 @@
 include_once("config.php");
 
 if(isset($_POST['Submit'])) {	
-	$name = $_POST['Name'];
-	$age = $_POST['Date'];
-	$email = $_POST['Address'];
+	$name = $_POST['name'];
+	$age = $_POST['age'];
+	$email = $_POST['email'];
 		
 	// checking empty fields
 	if(empty($name) || empty($age) || empty($email)) {
@@ -34,7 +34,7 @@ if(isset($_POST['Submit'])) {
 		// if all the fields are filled (not empty) 
 			
 		//insert data to database	
-		$result = mysqli_query($mysqli, "INSERT INTO CRUD(name,age,email) VALUES('$name','$age','$email')");
+		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email) VALUES('$name','$age','$email')");
 		
 		//display success message
 		echo "<font color='green'>Data added successfully.";

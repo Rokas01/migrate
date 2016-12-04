@@ -13,10 +13,10 @@ $conn = mysql_connect("sql7.freemysqlhosting.net", "sql7147806", "Ezuy3DJCJ8")
  * using mysqli_connect instead
  */
 
-$databaseHost = 'localhost';
-$databaseName = 'test';
-$databaseUsername = 'root';
-$databasePassword = 'root';
+$databaseHost = 'sql7.freemysqlhosting.net';
+$databaseName = 'sql7147806';
+$databaseUsername = 'sql7147806';
+$databasePassword = 'Ezuy3DJCJ8';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
  
